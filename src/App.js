@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Singletodo from "./Singletodo";
 
 class App extends Component {
 	
@@ -22,10 +23,16 @@ class App extends Component {
 		this.setState({todos: todosCopy, currentVal: ""});
 	}
 	
+	deleteFunction = (i) => {
+		var todosCopy = this.state.todos.slice();
+		todosCopy.splice(i,1);
+		this.setState({todos: todosCopy});
+	}
+	
 	render(){
-		var bulletedTodos = this.state.todos.map((e,i) => {
+		var bulletedTodos = this.state.todos.map((e, i) => {
 			return (
-				<li key={i}>{e}</li>
+				<Singletodo todo={e} del={() => this.deleteFunction(i)}/>
 			);
 		});
 		return(
