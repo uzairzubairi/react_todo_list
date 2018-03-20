@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Singletodo from "./Singletodo";
+import './styles.css';
 
 class App extends Component {
 	
@@ -37,10 +38,15 @@ class App extends Component {
 		});
 		return(
 			<div>
-				<input type="text" placeholder="Add a new todo here!" value={this.state.currentVal} onChange={this.onChangeFunction}/>
-				<button onClick={this.onBtnClickFunction}>Add!</button>
-				<br/>
-				<ul>{bulletedTodos}</ul>
+				<div id="title">Get more done!</div>
+				<div id="inputdiv">
+					<input type="text" placeholder="Add a new todo here!" value={this.state.currentVal} onChange={this.onChangeFunction}/><br/>
+					<button onClick={this.onBtnClickFunction}>Add!</button>
+				</div>
+				<div id="list">
+					<h2><u>To Do:</u></h2><br/>
+					<ul>{bulletedTodos}</ul>
+				</div>
 			</div>
 		
 		);
